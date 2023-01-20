@@ -1,6 +1,4 @@
-# Gettinng Started
-
-Apres avoir clonner le repo faite :
+# Getting Started
 
 ## Installation des dependences
 ```
