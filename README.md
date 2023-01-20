@@ -3,26 +3,35 @@
 Apres avoir clonner le repo faite :
 
 ## Installation des dependences
+```
 - Npm Install
+```
 ## Base de donnée
 
 ### Création de la base
+```
 - npx sequelize-cli db:create
+```
 
 ### Lancement des migrations 
+```
 - npx sequelize-cli db:migrate
+```
 
 ### Generation de donnée dans la base
-
+```
 - npx sequelize-cli db:seed:all
+```
 
 ## Lancement de l'api 
+```
 - npm run dev
+```
 
 ## Documentation de l'api
 
 ### Create reservation
-Route : localhost:6500/api/v1/reservation/create
+Route : ```localhost:6500/api/v1/reservation/create```
 
 Attendus :
 
@@ -32,28 +41,28 @@ Attendus :
 - parking_id : id du parking
 
 ### Edit reservation
-Route : localhost:6500/api/v1/reservation/edit/:id
+Route : ```localhost:6500/api/v1/reservation/edit/:id```
 
 Attendus :
 
 - customer_name : Nom du customer
 
 ### GetAll reservation
-Route : localhost:6500/api/v1/reservation/find-all
+Route : ```localhost:6500/api/v1/reservation/find-all```
 
 Retourne :
 
 - Tout les utilisateurs
 
 ### GetById reservation
-Route : localhost:6500/api/v1/reservation/find/:id
+Route : ```localhost:6500/api/v1/reservation/find/:id```
 
 Retourne :
 
 - L'utilisateur correspondant a l'id
 
 ### Delete reservation
-Route : localhost:6500/api/v1/reservation/find/:id
+Route : ```localhost:6500/api/v1/reservation/find/:id```
 
 Supprime la reservation
 
