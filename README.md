@@ -36,9 +36,9 @@ Attendus :
 ```
 {
     customer_name : Nom du customer
-start_date : Date de début
-end_date : Date de fin
-parking_id : id du parking
+    start_date : Date de début
+    end_date : Date de fin
+    parking_id : id du parking
 }
 ```
 
