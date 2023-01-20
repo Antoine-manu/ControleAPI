@@ -43,7 +43,7 @@ Attendus :
 ```
 
 ### Edit reservation
-Route : ```localhost:6500/api/v1/reservation/edit/:id```
+Route : ```localhost:6500/api/v1/reservation/update/:id```
 
 Attendus :
 ```
