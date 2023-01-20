@@ -9,7 +9,7 @@ app.use(express.json());
 
 try {
 	app
-		.use('/api/v1', require('./routes/user'));
+		.use('/api/v1', require('./routes/reservation'));
 
 	app.listen(6500, () => console.log('Server started: 6500'));
 } catch (error) {
