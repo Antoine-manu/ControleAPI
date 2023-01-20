@@ -33,18 +33,24 @@ Route : ```localhost:6500/api/v1/reservation/create```
 
 Attendus :
 
-- customer_name : Nom du customer
-- start_date : Date de début
-- end_date : Date de fin
-- parking_id : id du parking
+```
+{
+    customer_name : Nom du customer
+start_date : Date de début
+end_date : Date de fin
+parking_id : id du parking
+}
+```
 
 ### Edit reservation
 Route : ```localhost:6500/api/v1/reservation/edit/:id```
 
 Attendus :
-
-- customer_name : Nom du customer
-
+```
+{
+    customer_name : Nom du customer
+}
+```
 ### GetAll reservation
 Route : ```localhost:6500/api/v1/reservation/find-all```
 
