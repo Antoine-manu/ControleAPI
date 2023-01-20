@@ -4,6 +4,7 @@ const ReservationsParkings = db['Reservations_parking']
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcrypt');
 const { DATE } = require('sequelize');
+const { sequelize } = require('../models/index.js');
 
 // Create and Save a new Reservations
 exports.create = (req, res) => {
