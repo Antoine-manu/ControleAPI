@@ -1,7 +1,9 @@
 const db = require('../models/index.js');
 const Reservations = db['Reservations']
+const ReservationsParkings = db['Reservations_parking']
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcrypt');
+const { DATE } = require('sequelize');
 
 // Create and Save a new Reservations
 exports.create = (req, res) => {
@@ -12,14 +14,47 @@ exports.create = (req, res) => {
 		});
 		return;
 	}
+	if (!req.body.start_date) {
+		res.status(400).send({
+			message: "La reservation doit avoir une date de debut"
+		});
+		return;
+	}
+	if (!req.body.end_date) {
+		res.status(400).send({
+			message: "La reservation doit avoir une date de fin"
+		});
+		return;
+	}
+	if (!req.body.parking_id) {
+		res.status(400).send({
+			message: "La reservation doit avoir un parking"
+		});
+		return;
+	}
 	const reservation = {
-		customer_name: req.body.customer_name,
+		customer_name: req.body.customer_name
 	};
 
 	// Save Reservation in the database
 	Reservations.create(reservation)
 		.then(data => {
-			res.send(data);
+			const reservationParking = {
+				reservation_id : data.id,
+				start_date: Date.parse(req.body.start_date),
+				end_date: Date.parse(req.body.end_date),
+				parking_id: req.body.parking_id,
+			};
+			ReservationsParkings.create(reservationParking)
+				.then(data => {
+					res.send(data);
+				})
+				.catch(err => {
+					res.status(500).send({
+						message:
+							err.message || 'Erreur lors de la creation de la reservation d une place de parking.'
+					});
+				});
 		})
 		.catch(err => {
 			res.status(500).send({
@@ -48,9 +83,11 @@ exports.findAll = (req, res) => {
 
 // Find a single Reservations with an id
 exports.findOneById = (req, res) => {
-	const id = req.body.id;
+	const id = req.params.id;
 
-	Reservations.findByPk(id)
+	Reservations.findByPk(id,{
+		include: ['Parkings'],
+	})
 		.then(data => {
 			if (data) {
 				res.send(data);
@@ -96,7 +133,7 @@ exports.update = (req, res) => {
 
 // Delete a Reservations with the specified id in the request
 exports.delete = (req, res) => {
-	const id = req.body.id;
+	const id = req.params.id;
 
 	Reservations.destroy({
 		where: { id: id }
