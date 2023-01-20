@@ -66,7 +66,7 @@ Retourne :
 - L'utilisateur correspondant a l'id
 
 ### Delete reservation
-Route : ```localhost:6500/api/v1/reservation/find/:id```
+Route : ```localhost:6500/api/v1/reservation/delete/:id```
 
 Supprime la reservation
 
