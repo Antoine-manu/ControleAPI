@@ -12,5 +12,9 @@ Apres avoir clonner le repo faite :
 ### Lancement des migrations 
 - npx sequelize-cli db:migrate
 
+#### Generation de donnée dans la base
+
+- npx sequelize-cli db:seed:all
+
 ## Lancement de l'api 
 - npm start
